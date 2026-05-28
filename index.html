@@ -4,649 +4,878 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Daily Edit — Women's Officewear</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --cream: #FAF8F5;
-      --warm-white: #FFFFFF;
-      --charcoal: #1C1C1A;
-      --mid: #6B6B67;
-      --light: #B8B5AF;
-      --border: rgba(28,28,26,0.1);
-      --accent: #8B6F4E;
-      --accent-light: #F5EFE8;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans: 'DM Sans', sans-serif;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    html { scroll-behavior: smooth; }
+    :root{
+      --cream:#FAF8F5;
+      --white:#fff;
+      --charcoal:#1C1C1A;
+      --mid:#6B6B67;
+      --border:rgba(28,28,26,0.1);
+      --accent:#8B6F4E;
+      --accent-light:#F5EFE8;
 
-    body {
-      font-family: var(--sans);
-      background: var(--cream);
-      color: var(--charcoal);
-      font-size: 15px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--cream);
-      border-bottom: 0.5px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 3rem;
-      height: 64px;
-    }
-    .nav-logo {
-      font-family: var(--serif);
-      font-size: 22px; font-weight: 400;
-      letter-spacing: 0.06em;
-    }
-    .nav-links {
-      display: flex; gap: 2.5rem; list-style: none;
-    }
-    .nav-links a {
-      font-size: 12px; font-weight: 400;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--mid);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--charcoal); }
-    .nav-right {
-      display: flex; gap: 1.2rem; align-items: center;
-    }
-    .nav-right a {
-      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--mid); transition: color 0.2s;
-    }
-    .nav-right a:hover { color: var(--charcoal); }
-
-    /* ── HERO ── */
-    .hero {
-      display: grid; grid-template-columns: 1fr 1fr;
-      min-height: 520px;
-    }
-    .hero-left {
-      padding: 5rem 3rem 5rem 3rem;
-      display: flex; flex-direction: column; justify-content: center;
-      border-right: 0.5px solid var(--border);
-    }
-    .hero-kicker {
-      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--mid); margin-bottom: 1.5rem;
-    }
-    .hero-left h1 {
-      font-family: var(--serif);
-      font-size: 56px; font-weight: 400; line-height: 1.08;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
-    }
-    .hero-left h1 em {
-      font-style: italic; color: var(--accent);
-    }
-    .hero-left p {
-      font-size: 15px; color: var(--mid);
-      max-width: 380px; line-height: 1.75;
-      margin-bottom: 2.5rem;
-    }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--charcoal); color: var(--cream);
-      padding: 13px 28px;
-      font-family: var(--sans); font-size: 12px;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      border: none; cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { background: #2e2e2b; transform: translateY(-1px); }
-    .btn-primary svg { width: 14px; height: 14px; }
-
-    .hero-right {
-      background: var(--accent-light);
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 1rem;
-      position: relative; overflow: hidden;
-    }
-    .hero-image-placeholder {
-      display: flex; flex-direction: column; align-items: center; gap: 1rem;
-    }
-    .hero-image-placeholder svg {
-      width: 80px; height: 80px; opacity: 0.25; color: var(--accent);
-    }
-    .hero-image-placeholder span {
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--accent); opacity: 0.6;
-    }
-    .hero-tag {
-      position: absolute; bottom: 2rem; left: 2rem;
-      background: var(--warm-white);
-      border: 0.5px solid var(--border);
-      padding: 10px 16px;
-      font-size: 12px; color: var(--mid); letter-spacing: 0.04em;
-    }
-    .hero-tag strong { display: block; font-weight: 500; color: var(--charcoal); font-size: 14px; }
-
-    /* ── TICKER / BANNER ── */
-    .ticker {
-      background: var(--charcoal); color: var(--cream);
-      overflow: hidden; white-space: nowrap;
-      padding: 10px 0;
-    }
-    .ticker-inner {
-      display: inline-block;
-      animation: ticker 24s linear infinite;
-    }
-    .ticker-inner span {
-      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 0 3rem; color: var(--light);
-    }
-    .ticker-inner span em { color: var(--cream); font-style: normal; }
-    @keyframes ticker {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      --serif:'Cormorant Garamond', serif;
+      --sans:'DM Sans', sans-serif;
     }
 
-    /* ── SECTIONS ── */
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 3rem; }
-    .section { padding: 5rem 0; }
-    .section-header {
-      display: flex; align-items: baseline; justify-content: space-between;
-      margin-bottom: 2.5rem;
-    }
-    .section-header h2 {
-      font-family: var(--serif);
-      font-size: 32px; font-weight: 400;
-    }
-    .section-header a {
-      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--mid); border-bottom: 0.5px solid var(--light);
-      padding-bottom: 2px; transition: color 0.2s;
-    }
-    .section-header a:hover { color: var(--charcoal); }
-    .section-kicker {
-      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--mid); margin-bottom: 0.5rem;
+    body{
+      background:var(--cream);
+      font-family:var(--sans);
+      color:var(--charcoal);
+      line-height:1.6;
     }
 
-    /* ── CATEGORIES ── */
-    .cats-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-      border: 0.5px solid var(--border);
-    }
-    .cat-item {
-      background: var(--warm-white);
-      padding: 2.5rem 1.5rem;
-      display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem;
-      border-right: 0.5px solid var(--border);
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .cat-item:last-child { border-right: none; }
-    .cat-item:hover { background: var(--accent-light); }
-    .cat-icon {
-      width: 36px; height: 36px;
-      background: var(--cream);
-      border: 0.5px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .cat-icon svg { width: 18px; height: 18px; color: var(--accent); }
-    .cat-name {
-      font-family: var(--serif); font-size: 20px; font-weight: 400;
-    }
-    .cat-count {
-      font-size: 11px; letter-spacing: 0.08em; color: var(--mid);
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    /* ── PRODUCTS ── */
-    .products-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-    }
-    .product-card {
-      background: var(--warm-white);
-      border: 0.5px solid var(--border);
-      display: flex; flex-direction: column;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .product-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 32px rgba(28,28,26,0.07);
-    }
-    .product-img {
-      background: var(--accent-light);
-      height: 200px;
-      display: flex; align-items: center; justify-content: center;
-      border-bottom: 0.5px solid var(--border);
-      position: relative;
-    }
-    .product-img svg { width: 48px; height: 48px; opacity: 0.18; color: var(--accent); }
-    .product-badge {
-      position: absolute; top: 1rem; left: 1rem;
-      background: var(--charcoal); color: var(--cream);
-      font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 4px 10px;
-    }
-    .product-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
-    .product-tag {
-      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--mid); margin-bottom: 6px;
-    }
-    .product-name {
-      font-family: var(--serif); font-size: 18px; font-weight: 400;
-      line-height: 1.3; margin-bottom: 8px;
-    }
-    .product-desc {
-      font-size: 13px; color: var(--mid); line-height: 1.6;
-      margin-bottom: 1rem; flex: 1;
-    }
-    .product-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      padding-top: 1rem; border-top: 0.5px solid var(--border);
-      margin-top: auto;
-    }
-    .product-price {
-      font-family: var(--serif); font-size: 18px; color: var(--charcoal);
-    }
-    .btn-amazon {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: transparent;
-      border: 0.5px solid var(--charcoal);
-      padding: 8px 16px;
-      font-family: var(--sans); font-size: 11px;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--charcoal); cursor: pointer;
-      transition: background 0.18s, color 0.18s;
-    }
-    .btn-amazon:hover { background: var(--charcoal); color: var(--cream); }
-    .btn-amazon svg { width: 12px; height: 12px; }
-
-    /* ── EDITORIAL STRIP ── */
-    .editorial {
-      background: var(--charcoal); color: var(--cream);
-      padding: 5rem 0;
-    }
-    .editorial .container {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center;
-    }
-    .editorial-text .kicker {
-      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--light); margin-bottom: 1.25rem;
-    }
-    .editorial-text h2 {
-      font-family: var(--serif); font-size: 40px; font-weight: 400;
-      line-height: 1.15; margin-bottom: 1.25rem;
-    }
-    .editorial-text h2 em { font-style: italic; color: #C4A882; }
-    .editorial-text p {
-      font-size: 15px; color: var(--light); line-height: 1.8; margin-bottom: 2rem;
-    }
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: 10px;
-      border: 0.5px solid rgba(255,255,255,0.3);
-      color: var(--cream);
-      padding: 12px 26px;
-      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-      cursor: pointer; background: transparent;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-outline:hover { border-color: var(--cream); background: rgba(255,255,255,0.05); }
-    .editorial-tips { display: flex; flex-direction: column; gap: 1.5rem; }
-    .tip {
-      display: flex; gap: 1.25rem; align-items: flex-start;
-      padding-bottom: 1.5rem; border-bottom: 0.5px solid rgba(255,255,255,0.08);
-    }
-    .tip:last-child { border-bottom: none; padding-bottom: 0; }
-    .tip-num {
-      font-family: var(--serif); font-size: 28px; color: #C4A882;
-      line-height: 1; min-width: 32px;
-    }
-    .tip-content strong {
-      display: block; font-size: 14px; font-weight: 500;
-      margin-bottom: 4px; color: var(--cream);
-    }
-    .tip-content p { font-size: 13px; color: var(--light); line-height: 1.65; }
-
-    /* ── NEWSLETTER ── */
-    .newsletter {
-      border-top: 0.5px solid var(--border);
-      border-bottom: 0.5px solid var(--border);
-      padding: 4rem 0;
-      text-align: center;
-    }
-    .newsletter .section-kicker { margin-bottom: 0.75rem; }
-    .newsletter h2 {
-      font-family: var(--serif); font-size: 36px; font-weight: 400;
-      margin-bottom: 0.75rem;
-    }
-    .newsletter p { color: var(--mid); margin-bottom: 2rem; }
-    .newsletter-form {
-      display: flex; gap: 0; max-width: 440px; margin: 0 auto;
-      border: 0.5px solid var(--border);
-    }
-    .newsletter-form input {
-      flex: 1; padding: 13px 18px;
-      border: none; background: var(--warm-white);
-      font-family: var(--sans); font-size: 14px; color: var(--charcoal);
-      outline: none;
-    }
-    .newsletter-form input::placeholder { color: var(--light); }
-    .newsletter-form button {
-      padding: 13px 24px;
-      background: var(--charcoal); color: var(--cream);
-      border: none; cursor: pointer;
-      font-family: var(--sans); font-size: 12px;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      transition: background 0.2s;
-    }
-    .newsletter-form button:hover { background: #2e2e2b; }
-    .newsletter-note {
-      margin-top: 1rem; font-size: 12px; color: var(--light);
+    img{
+      display:block;
     }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 3rem;
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 2rem;
-      border-top: 0.5px solid var(--border);
+    /* NAV */
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:var(--cream);
+      border-bottom:1px solid var(--border);
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      padding:0 3rem;
+      height:70px;
     }
-    .footer-brand .logo {
-      font-family: var(--serif); font-size: 20px; margin-bottom: 0.75rem;
+
+    .nav-logo{
+      font-family:var(--serif);
+      font-size:28px;
     }
-    .footer-brand p {
-      font-size: 13px; color: var(--mid); line-height: 1.7; max-width: 240px;
+
+    .nav-links{
+      display:flex;
+      gap:2rem;
+      list-style:none;
     }
-    .footer-col h4 {
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--mid); margin-bottom: 1rem;
+
+    .nav-links a,
+    .nav-right a{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:var(--mid);
     }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-col ul li a {
-      font-size: 13px; color: var(--mid);
-      transition: color 0.2s;
+
+    .nav-right{
+      display:flex;
+      gap:1rem;
     }
-    .footer-col ul li a:hover { color: var(--charcoal); }
-    .footer-bottom {
-      grid-column: 1 / -1;
-      padding-top: 2rem; border-top: 0.5px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
+
+    /* HERO */
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      min-height:600px;
     }
-    .footer-bottom p {
-      font-size: 12px; color: var(--light);
+
+    .hero-left{
+      padding:5rem 3rem;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
-    .affiliate-notice {
-      font-size: 12px; color: var(--light); max-width: 480px; text-align: right;
+
+    .hero-kicker{
+      font-size:12px;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:var(--mid);
+      margin-bottom:1rem;
     }
+
+    .hero-left h1{
+      font-family:var(--serif);
+      font-size:64px;
+      line-height:1.05;
+      font-weight:400;
+      margin-bottom:1.5rem;
+    }
+
+    .hero-left em{
+      color:var(--accent);
+    }
+
+    .hero-left p{
+      color:var(--mid);
+      max-width:420px;
+      margin-bottom:2rem;
+    }
+
+    .btn-primary{
+      display:inline-flex;
+      width:fit-content;
+      align-items:center;
+      gap:10px;
+      background:var(--charcoal);
+      color:var(--cream);
+      padding:14px 28px;
+      font-size:12px;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+    }
+
+    .hero-right{
+      position:relative;
+      overflow:hidden;
+      background:var(--accent-light);
+    }
+
+    .hero-right img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .hero-tag{
+      position:absolute;
+      bottom:2rem;
+      left:2rem;
+
+      background:white;
+      padding:14px 18px;
+      border-radius:10px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+
+      font-size:13px;
+    }
+
+    .hero-tag strong{
+      display:block;
+      margin-bottom:4px;
+    }
+
+    /* TICKER */
+
+    .ticker{
+      background:var(--charcoal);
+      color:white;
+      padding:12px 0;
+      overflow:hidden;
+      white-space:nowrap;
+    }
+
+    .ticker-inner{
+      animation:ticker 18s linear infinite;
+      display:inline-block;
+    }
+
+    .ticker-inner span{
+      padding:0 3rem;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+    }
+
+    @keyframes ticker{
+      0%{
+        transform:translateX(0);
+      }
+      100%{
+        transform:translateX(-50%);
+      }
+    }
+
+    /* GENERAL */
+
+    .container{
+      max-width:1150px;
+      margin:auto;
+      padding:0 3rem;
+    }
+
+    .section{
+      padding:5rem 0;
+    }
+
+    .section-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      margin-bottom:2rem;
+    }
+
+    .section-kicker{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      color:var(--mid);
+      margin-bottom:6px;
+    }
+
+    .section-header h2{
+      font-family:var(--serif);
+      font-size:40px;
+      font-weight:400;
+    }
+
+    /* CATEGORIES */
+
+    .cats-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:1rem;
+    }
+
+    .cat-item{
+      background:white;
+      padding:2rem;
+      border-radius:16px;
+      border:1px solid var(--border);
+    }
+
+    .cat-name{
+      font-family:var(--serif);
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .cat-count{
+      color:var(--mid);
+      font-size:13px;
+    }
+
+    /* PRODUCTS */
+
+    .products-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .product-card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      transition:0.2s;
+    }
+
+    .product-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .product-img{
+      height:360px;
+      overflow:hidden;
+    }
+
+    .product-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .product-body{
+      padding:1.5rem;
+    }
+
+    .product-tag{
+      text-transform:uppercase;
+      font-size:11px;
+      letter-spacing:0.12em;
+      color:var(--mid);
+      margin-bottom:10px;
+    }
+
+    .product-name{
+      font-family:var(--serif);
+      font-size:28px;
+      line-height:1.2;
+      margin-bottom:10px;
+    }
+
+    .product-desc{
+      color:var(--mid);
+      font-size:14px;
+      margin-bottom:1.5rem;
+    }
+
+    .product-footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .product-price{
+      font-size:22px;
+      font-family:var(--serif);
+    }
+
+    .btn-amazon{
+      border:1px solid var(--charcoal);
+      padding:10px 18px;
+      border-radius:999px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      transition:0.2s;
+    }
+
+    .btn-amazon:hover{
+      background:var(--charcoal);
+      color:white;
+    }
+
+    /* EDITORIAL */
+
+    .editorial{
+      background:var(--charcoal);
+      color:white;
+    }
+
+    .editorial-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:4rem;
+      align-items:center;
+    }
+
+    .editorial h2{
+      font-family:var(--serif);
+      font-size:50px;
+      line-height:1.1;
+      font-weight:400;
+      margin-bottom:1rem;
+    }
+
+    .editorial p{
+      color:#d5d5d5;
+      margin-bottom:2rem;
+    }
+
+    .tip{
+      margin-bottom:2rem;
+    }
+
+    .tip strong{
+      display:block;
+      margin-bottom:8px;
+      font-size:18px;
+    }
+
+    .tip p{
+      margin:0;
+      font-size:14px;
+    }
+
+    /* NEWSLETTER */
+
+    .newsletter{
+      text-align:center;
+    }
+
+    .newsletter h2{
+      font-family:var(--serif);
+      font-size:48px;
+      margin-bottom:1rem;
+      font-weight:400;
+    }
+
+    .newsletter p{
+      color:var(--mid);
+      margin-bottom:2rem;
+    }
+
+    .newsletter-form{
+      display:flex;
+      justify-content:center;
+      max-width:500px;
+      margin:auto;
+    }
+
+    .newsletter-form input{
+      flex:1;
+      padding:16px;
+      border:1px solid var(--border);
+      border-right:none;
+      outline:none;
+    }
+
+    .newsletter-form button{
+      padding:16px 24px;
+      background:var(--charcoal);
+      color:white;
+      border:none;
+      cursor:pointer;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:4rem 3rem;
+      border-top:1px solid var(--border);
+
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:2rem;
+    }
+
+    .footer-brand .logo{
+      font-family:var(--serif);
+      font-size:28px;
+      margin-bottom:1rem;
+    }
+
+    .footer-brand p{
+      max-width:280px;
+      color:var(--mid);
+    }
+
+    .footer-col h4{
+      text-transform:uppercase;
+      font-size:12px;
+      letter-spacing:0.12em;
+      margin-bottom:1rem;
+    }
+
+    .footer-col ul{
+      list-style:none;
+    }
+
+    .footer-col li{
+      margin-bottom:10px;
+      color:var(--mid);
+    }
+
+    @media(max-width:900px){
+
+      .hero,
+      .editorial-wrap,
+      footer,
+      .products-grid,
+      .cats-grid{
+        grid-template-columns:1fr;
+      }
+
+      nav{
+        padding:0 1rem;
+      }
+
+      .container{
+        padding:0 1rem;
+      }
+
+      .hero-left{
+        padding:3rem 1rem;
+      }
+
+      .hero-left h1{
+        font-size:48px;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
   <!-- NAV -->
+
   <nav>
     <div class="nav-logo">The Daily Edit</div>
+
     <ul class="nav-links">
-      <li><a href="#categories">Blazers</a></li>
-      <li><a href="#categories">Trousers</a></li>
-      <li><a href="#categories">Blouses</a></li>
-      <li><a href="#categories">Dresses</a></li>
-      <li><a href="#style-guide">Style guide</a></li>
+      <li><a href="#">Blazers</a></li>
+      <li><a href="#">Blouses</a></li>
+      <li><a href="#">Trousers</a></li>
+      <li><a href="#">Accessories</a></li>
     </ul>
+
     <div class="nav-right">
-      <a href="#newsletter">Newsletter</a>
-      <a href="#about">About</a>
+      <a href="#">Newsletter</a>
+      <a href="#">About</a>
     </div>
   </nav>
 
   <!-- HERO -->
+
   <section class="hero">
+
     <div class="hero-left">
       <p class="hero-kicker">Summer 2026 — curated officewear</p>
-      <h1>Dress for the role you <em>want.</em></h1>
-      <p>Handpicked officewear for the modern professional woman. Every piece is tried, tested, and linked directly to Amazon — no faff, just great finds.</p>
+
+      <h1>
+        Dress for the role you <em>want.</em>
+      </h1>
+
+      <p>
+        Handpicked officewear for the modern professional woman. Elegant, effortless and work-ready.
+      </p>
+
       <a href="#picks" class="btn-primary">
-        Shop the edit
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+        Shop the edit →
       </a>
     </div>
+
     <div class="hero-right">
-      <div class="hero-image-placeholder">
-        <!-- Replace this block with an <img> tag for your hero photo -->
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        <span>Add your hero image here</span>
-      </div>
+
+      <img src="image(3).png"
+           alt="Professional woman in suit">
+
       <div class="hero-tag">
         <strong>Editor's pick of the week</strong>
-        Tailored linen blazer — ₹2,899 on Amazon
+        Tailored blazer essentials
       </div>
+
     </div>
+
   </section>
 
   <!-- TICKER -->
-  <div class="ticker" aria-hidden="true">
+
+  <div class="ticker">
     <div class="ticker-inner">
-      <span>Free shipping on orders over ₹499 &nbsp;·&nbsp;</span>
-      <span><em>New picks every Tuesday</em> &nbsp;·&nbsp;</span>
-      <span>Amazon affiliate links — we earn a small commission at no extra cost to you &nbsp;·&nbsp;</span>
-      <span>Free shipping on orders over ₹499 &nbsp;·&nbsp;</span>
-      <span><em>New picks every Tuesday</em> &nbsp;·&nbsp;</span>
-      <span>Amazon affiliate links — we earn a small commission at no extra cost to you &nbsp;·&nbsp;</span>
+      <span>New picks every Tuesday</span>
+      <span>Curated Amazon officewear</span>
+      <span>Minimal. Elegant. Professional.</span>
+      <span>New picks every Tuesday</span>
+      <span>Curated Amazon officewear</span>
     </div>
   </div>
 
   <!-- CATEGORIES -->
-  <section class="section" id="categories">
+
+  <section class="section">
     <div class="container">
+
       <div class="section-header">
         <div>
           <p class="section-kicker">Browse</p>
           <h2>Shop by category</h2>
         </div>
-        <a href="#">View all →</a>
       </div>
+
       <div class="cats-grid">
+
         <div class="cat-item">
-          <div class="cat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
-          </div>
           <div class="cat-name">Blazers</div>
           <div class="cat-count">48 picks</div>
         </div>
+
         <div class="cat-item">
-          <div class="cat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c-1 0-2 .5-2.5 1.5L4 6v2l2.5.5v10h11V8.5L20 8V6l-5.5-1.5C14 3.5 13 3 12 3z"/></svg>
-          </div>
           <div class="cat-name">Blouses</div>
           <div class="cat-count">62 picks</div>
         </div>
+
         <div class="cat-item">
-          <div class="cat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 2h12M6 22h12M7 2v20M17 2v20M7 12h10"/></svg>
-          </div>
           <div class="cat-name">Trousers</div>
           <div class="cat-count">35 picks</div>
         </div>
-        <div class="cat-item" style="border-right:none">
-          <div class="cat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-          </div>
+
+        <div class="cat-item">
           <div class="cat-name">Accessories</div>
           <div class="cat-count">29 picks</div>
         </div>
+
       </div>
+
     </div>
   </section>
 
   <!-- PRODUCTS -->
-  <section class="section" id="picks" style="padding-top:0">
+
+  <section class="section" id="picks">
+
     <div class="container">
+
       <div class="section-header">
         <div>
           <p class="section-kicker">Curated</p>
           <h2>Editor's picks</h2>
         </div>
-        <a href="#">See all picks →</a>
       </div>
+
       <div class="products-grid">
 
-        <!-- PRODUCT 1 — replace href with your Amazon affiliate link -->
+        <!-- PRODUCT 1 -->
+
         <div class="product-card">
+
           <div class="product-img">
-            <!-- Replace with: <img src="your-image.jpg" alt="Blazer" style="width:100%;height:100%;object-fit:cover"> -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.75"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-            <span class="product-badge">Editor's pick</span>
+            <img src="image.png"
+                 alt="Brown blazer">
           </div>
+
           <div class="product-body">
+
             <p class="product-tag">Blazers</p>
-            <p class="product-name">Tailored Double-Button Blazer</p>
-            <p class="product-desc">A structured blazer in a versatile neutral — pairs effortlessly with trousers or a midi skirt. Machine washable.</p>
+
+            <p class="product-name">
+              Tailored Brown Blazer
+            </p>
+
+            <p class="product-desc">
+              Elegant structured blazer for effortless office styling.
+            </p>
+
             <div class="product-footer">
-              <span class="product-price">From ₹2,499</span>
-              <a href="YOUR_AMAZON_AFFILIATE_LINK_HERE" target="_blank" rel="noopener sponsored" class="btn-amazon">
+
+              <span class="product-price">
+                ₹2,499
+              </span>
+
+              <a href="https://a.co/d/01BNTkla"
+                 target="_blank"
+                 class="btn-amazon">
                 Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
+
             </div>
+
           </div>
+
         </div>
 
         <!-- PRODUCT 2 -->
+
         <div class="product-card">
+
           <div class="product-img">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.75"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-            <span class="product-badge">Best seller</span>
+            <img src="image(2).png"
+                 alt="Beige office top">
           </div>
+
           <div class="product-body">
+
             <p class="product-tag">Blouses</p>
-            <p class="product-name">Silk-Touch Relaxed Collar Blouse</p>
-            <p class="product-desc">Soft, breathable, and polished. Tucks neatly into trousers or sits beautifully over a pencil skirt.</p>
+
+            <p class="product-name">
+              Beige Wrap Office Top
+            </p>
+
+            <p class="product-desc">
+              Soft neutral statement top perfect for modern workwear.
+            </p>
+
             <div class="product-footer">
-              <span class="product-price">From ₹1,299</span>
-              <a href="YOUR_AMAZON_AFFILIATE_LINK_HERE" target="_blank" rel="noopener sponsored" class="btn-amazon">
+
+              <span class="product-price">
+                ₹1,299
+              </span>
+
+              <a href="https://a.co/d/04CwYfta"
+                 target="_blank"
+                 class="btn-amazon">
                 Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
+
             </div>
+
           </div>
+
         </div>
 
         <!-- PRODUCT 3 -->
+
         <div class="product-card">
+
           <div class="product-img">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.75"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <img src="image(1).png"
+                 alt="Black trousers">
           </div>
+
           <div class="product-body">
+
             <p class="product-tag">Trousers</p>
-            <p class="product-name">Wide-Leg High-Rise Trousers</p>
-            <p class="product-desc">The trouser silhouette of the season. Full-length with a flattering high waist — smart without trying too hard.</p>
+
+            <p class="product-name">
+              Wide-Leg Black Trousers
+            </p>
+
+            <p class="product-desc">
+              Smart high-waisted trousers with a polished tailored fit.
+            </p>
+
             <div class="product-footer">
-              <span class="product-price">From ₹1,799</span>
-              <a href="YOUR_AMAZON_AFFILIATE_LINK_HERE" target="_blank" rel="noopener sponsored" class="btn-amazon">
+
+              <span class="product-price">
+                ₹1,799
+              </span>
+
+              <a href="https://a.co/d/0aWaPSwC"
+                 target="_blank"
+                 class="btn-amazon">
                 Amazon
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
+
             </div>
+
           </div>
+
         </div>
 
       </div>
+
     </div>
+
   </section>
 
-  <!-- STYLE GUIDE STRIP -->
-  <section class="editorial" id="style-guide">
-    <div class="container">
-      <div class="editorial-text">
-        <p class="kicker">Style guide</p>
-        <h2>Build a capsule wardrobe that <em>actually</em> works.</h2>
-        <p>You don't need a full wardrobe refresh. You need ten pieces that do thirty jobs. Here's how we think about it.</p>
-        <a href="#newsletter" class="btn-outline">Get the full guide →</a>
+  <!-- STYLE GUIDE -->
+
+  <section class="editorial section">
+
+    <div class="container editorial-wrap">
+
+      <div>
+
+        <p class="section-kicker">Style guide</p>
+
+        <h2>
+          Build a capsule wardrobe that actually works.
+        </h2>
+
+        <p>
+          You don't need more clothes — you need better combinations.
+        </p>
+
+        <a href="#" class="btn-primary">
+          Read the guide →
+        </a>
+
       </div>
-      <div class="editorial-tips">
+
+      <div>
+
         <div class="tip">
-          <div class="tip-num">01</div>
-          <div class="tip-content">
-            <strong>Anchor in neutrals</strong>
-            <p>Build on black, navy, beige, and ivory. Every piece should work with at least three others in your wardrobe.</p>
-          </div>
+          <strong>Anchor in neutrals</strong>
+          <p>
+            Black, beige, ivory and navy create effortless combinations.
+          </p>
         </div>
+
         <div class="tip">
-          <div class="tip-num">02</div>
-          <div class="tip-content">
-            <strong>Invest in versatile cuts</strong>
-            <p>A well-cut blazer can take you from a 9am meeting to a 7pm dinner. Prioritise pieces that earn their place.</p>
-          </div>
+          <strong>Invest in tailoring</strong>
+          <p>
+            Structured silhouettes elevate even the simplest outfit.
+          </p>
         </div>
+
         <div class="tip">
-          <div class="tip-num">03</div>
-          <div class="tip-content">
-            <strong>Quality over quantity</strong>
-            <p>Ten pieces that fit perfectly outperform thirty that don't. Always check Amazon reviews and the size guide.</p>
-          </div>
+          <strong>Quality over quantity</strong>
+          <p>
+            Fewer versatile pieces outperform trend-heavy wardrobes.
+          </p>
         </div>
+
       </div>
+
     </div>
+
   </section>
 
   <!-- NEWSLETTER -->
-  <section class="newsletter section" id="newsletter">
+
+  <section class="newsletter section">
+
     <div class="container">
-      <p class="section-kicker">The weekly edit</p>
-      <h2>New picks, straight to your inbox.</h2>
-      <p>Every Tuesday — curated finds, styling tips, and exclusive deals. No clutter.</p>
-      <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="your@email.com" aria-label="Email address" />
-        <button type="submit">Subscribe</button>
+
+      <p class="section-kicker">
+        The weekly edit
+      </p>
+
+      <h2>
+        New picks, straight to your inbox.
+      </h2>
+
+      <p>
+        Curated officewear, styling tips and elegant finds every week.
+      </p>
+
+      <form class="newsletter-form">
+
+        <input type="email"
+               placeholder="your@email.com">
+
+        <button>
+          Subscribe
+        </button>
+
       </form>
-      <p class="newsletter-note">No spam. Unsubscribe any time.</p>
+
     </div>
+
   </section>
 
   <!-- FOOTER -->
-  <footer id="about">
+
+  <footer>
+
     <div class="footer-brand">
-      <div class="logo">The Daily Edit</div>
-      <p>A curated guide to women's officewear on Amazon. We find the pieces worth wearing — you shop with confidence.</p>
+
+      <div class="logo">
+        The Daily Edit
+      </div>
+
+      <p>
+        Curated officewear for the modern professional woman.
+      </p>
+
     </div>
+
     <div class="footer-col">
+
       <h4>Shop</h4>
+
       <ul>
-        <li><a href="#">Blazers</a></li>
-        <li><a href="#">Blouses</a></li>
-        <li><a href="#">Trousers</a></li>
-        <li><a href="#">Dresses</a></li>
-        <li><a href="#">Accessories</a></li>
+        <li>Blazers</li>
+        <li>Blouses</li>
+        <li>Trousers</li>
+        <li>Accessories</li>
       </ul>
+
     </div>
+
     <div class="footer-col">
+
       <h4>Guides</h4>
+
       <ul>
-        <li><a href="#">Capsule wardrobe</a></li>
-        <li><a href="#">Business casual</a></li>
-        <li><a href="#">Smart formal</a></li>
-        <li><a href="#">Work from home</a></li>
+        <li>Capsule wardrobe</li>
+        <li>Business casual</li>
+        <li>Smart formal</li>
       </ul>
+
     </div>
+
     <div class="footer-col">
+
       <h4>Info</h4>
+
       <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Affiliate disclosure</a></li>
-        <li><a href="#">Privacy policy</a></li>
-        <li><a href="#">Contact</a></li>
+        <li>About</li>
+        <li>Privacy</li>
+        <li>Contact</li>
       </ul>
+
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 The Daily Edit. All rights reserved.</p>
-      <p class="affiliate-notice">As an Amazon Associate we earn from qualifying purchases. Prices shown are approximate and may vary.</p>
-    </div>
+
   </footer>
 
 </body>
