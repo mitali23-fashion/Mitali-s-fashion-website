@@ -1,157 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitali's Fashion Website</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fafafa;
-            color: #333;
-            text-align: center;
-        }
-        header {
-            background-color: #ffffff;
-            padding: 40px 20px;
-            border-bottom: 1px solid #eaeaea;
-        }
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 400;
-        }
-        p.subtitle {
-            font-style: italic;
-            color: #777;
-            margin-top: 8px;
-            letter-spacing: 1px;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        h2 {
-            font-weight: 300;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-        }
-        .intro-text {
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            line-height: 1.6;
-        }
-        .gallery {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .gallery-item {
-            background: white;
-            border: 1px solid #eee;
-            padding: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            max-width: 300px;
-            flex: 1 1 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-        .gallery-item h3 {
-            margin: 15px 0 10px 0;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .buy-btn {
-            display: block;
-            margin-top: 15px;
-            padding: 12px 20px;
-            background-color: #111;
-            color: white;
-            text-decoration: none;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        .buy-btn:hover {
-            background-color: #d4af37; /* Sophisticated gold hover color */
-        }
-        footer {
-            margin-top: 80px;
-            padding: 30px 20px;
-            background-color: #111;
-            color: #fff;
-            font-size: 0.85rem;
-        }
-        .disclosure {
-            font-style: italic;
-            color: #aaa;
-            margin-bottom: 15px;
-            font-size: 0.8rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.4;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Daily Edit — Women's Officewear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #FAF8F5;
+      --warm-white: #FFFFFF;
+      --charcoal: #1C1C1A;
+      --mid: #6B6B67;
+      --light: #B8B5AF;
+      --border: rgba(28,28,26,0.1);
+      --accent: #8B6F4E;
+      --accent-light: #F5EFE8;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--charcoal);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--cream);
+      border-bottom: 0.5px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3rem;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 22px; font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+    .nav-links {
+      display: flex; gap: 2.5rem; list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--mid);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--charcoal); }
+    .nav-right {
+      display: flex; gap: 1.2rem; align-items: center;
+    }
+    .nav-right a {
+      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--mid); transition: color 0.2s;
+    }
+    .nav-right a:hover { color: var(--charcoal); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    .hero-left {
+      padding: 5rem 3rem 5rem 3rem;
+      display: flex; flex-direction: column; justify-content: center;
+      border-right: 0.5px solid var(--border);
+    }
+    .hero-kicker {
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--mid); margin-bottom: 1.5rem;
+    }
+    .hero-left h1 {
+      font-family: var(--serif);
+      font-size: 56px; font-weight: 400; line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-left h1 em {
+      font-style: italic; color: var(--accent);
+    }
+    .hero-left p {
+      font-size: 15px; color: var(--mid);
+      max-width: 380px; line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--charcoal); color: var(--cream);
+      padding: 13px 28px;
+      font-family: var(--sans); font-size: 12px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #2e2e2b; transform: translateY(-1px); }
+    .btn-primary svg { width: 14px; height: 14px; }
+
+    .hero-right {
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 1rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-image {
+      width: 100%; height: 100%; object-fit: cover;
+      position: absolute; top: 0; left: 0;
+    }
+    .hero-tag {
+      position: absolute; bottom: 2rem; left: 2rem;
+      background: var(--warm-white);
+      border: 0.5px solid var(--border);
+      padding: 10px 16px;
+      font-size: 12px; color: var(--mid); letter-spacing: 0.04em;
+      z-index: 10;
+    }
+    .hero-tag strong { display: block; font-weight: 500; color: var(--charcoal); font-size: 14px; }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--charcoal); color: var(--cream);
+      overflow: hidden; white-space: nowrap;
+      padding: 10px 0;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 24s linear infinite;
+    }
+    .ticker-inner span {
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0 3rem; color: var(--light);
+    }
+    .ticker-inner span em { color: var(--cream); font-style: normal; }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SECTIONS ── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 3rem; }
+    .section { padding: 5rem 0; }
+    .section-header {
+      text-align: center; margin-bottom: 4rem;
+    }
+    .section-header h2 {
+      font-family: var(--serif);
+      font-size: 48px; font-weight: 400; margin-bottom: 1rem;
+    }
+    .section-header p {
+      font-size: 16px; color: var(--mid); max-width: 500px; margin: 0 auto;
+    }
+
+    /* ── BIFURCATION ── */
+    .bifurcation { margin-bottom: 4rem; }
+    .bifurcation-header {
+      border-bottom: 0.5px solid var(--border);
+      padding-bottom: 1rem; margin-bottom: 2rem;
+    }
+    .bifurcation-header h3 {
+      font-family: var(--serif); font-size: 28px; font-weight: 400;
+      color: var(--accent);
+    }
+    .products-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .product-card {
+      background: var(--warm-white);
+      border: 0.5px solid var(--border);
+      display: flex; flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(28,28,26,0.07);
+    }
+    .product-img-box {
+      height: 280px; width: 100%; border-bottom: 0.5px solid var(--border);
+      position: relative;
+    }
+    .product-img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .product-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .product-tag {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--mid); margin-bottom: 6px;
+    }
+    .product-name {
+      font-family: var(--serif); font-size: 18px; font-weight: 400;
+      line-height: 1.3; margin-bottom: 1.5rem; flex: 1;
+    }
+    .btn-amazon {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--charcoal);
+      padding: 12px;
+      font-family: var(--sans); font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cream); cursor: pointer;
+      transition: background 0.18s;
+      width: 100%; margin-top: auto;
+    }
+    .btn-amazon:hover { background: #2e2e2b; }
+    .btn-amazon svg { width: 14px; height: 14px; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 4rem 3rem 2rem 3rem;
+      background: var(--warm-white);
+      border-top: 0.5px solid var(--border);
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: var(--serif); font-size: 24px; margin-bottom: 1rem;
+    }
+    .affiliate-notice {
+      font-size: 12px; color: var(--light); max-width: 500px; margin: 0 auto 2rem auto;
+      font-style: italic;
+    }
+    .footer-bottom {
+      font-size: 12px; color: var(--light);
+      border-top: 0.5px solid var(--border); padding-top: 2rem;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Mitali's Fashion</h1>
-        <p class="subtitle">Chic & Professional Officewear</p>
-    </header>
+    <nav>
+    <div class="nav-logo">The Daily Edit</div>
+    <ul class="nav-links">
+      <li><a href="#blazers">Blazers</a></li>
+      <li><a href="#tops">Tops</a></li>
+      <li><a href="#trousers">Trousers</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#about">About</a>
+    </div>
+  </nav>
 
-    <div class="container">
-        <h2>Our Curated Collection</h2>
-        <p class="intro-text">Explore handpicked office wear essentials designed to make you feel confident, empowered, and stylish every day in the workplace.</p>
-        
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=600" alt="Classic Blazer">
-                <h3>Classic Blazers</h3>
-                <a href="https://a.co/d/06N2i18O" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
+    <section class="hero">
+    <div class="hero-left">
+      <p class="hero-kicker">Summer 2026 — curated officewear</p>
+      <h1>Dress for the role you <em>want.</em></h1>
+      <p>Handpicked officewear for the modern professional woman. Every piece is linked directly to Amazon for effortless shopping.</p>
+      <a href="#picks" class="btn-primary">
+        Shop the edit
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"/></svg>
+      </a>
+    </div>
+    <div class="hero-right">
+      <img src="image_2.png" alt="Mitali's Fashion Hero — Professional Style" class="hero-image" />
+      <div class="hero-tag">
+        <strong>Editor's pick of the week</strong>
+        Tailored linen blazer — View on Amazon
+      </div>
+    </div>
+  </section>
 
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=600" alt="Elegant Trousers">
-                <h3>Elegant Trousers</h3>
-                <a href="https://a.co/d/08j42nFd" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
+    <div class="ticker" aria-hidden="true">
+    <div class="ticker-inner">
+      <span>Free shipping on orders over ₹499 &nbsp;·&nbsp;</span>
+      <span><em>New picks every Tuesday</em> &nbsp;·&nbsp;</span>
+      <span>Amazon affiliate links — we earn a small commission &nbsp;·&nbsp;</span>
+      <span>Free shipping on orders over ₹499 &nbsp;·&nbsp;</span>
+      <span><em>New picks every Tuesday</em> &nbsp;·&nbsp;</span>
+      <span>Amazon affiliate links — we earn a small commission &nbsp;·&nbsp;</span>
+    </div>
+  </div>
 
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1561365264-4ac2b5cb347f?q=80&w=600" alt="Tailored Office Dress">
-                <h3>Tailored Dresses</h3>
-                <a href="https://a.co/d/030b56wh" target="_blank" class="buy-btn">View on Amazon</a>
-            </div>
-        </div>
-    </div>
+    <section class="section" id="picks">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Summer Edit</h2>
+        <p>Our curated collection of professional essentials for the modern woman, sorted by category.</p>
+      </div>
 
-    <footer>
-        <p class="disclosure">*As an Amazon Associate, I earn from qualifying purchases. When you click on links to various merchants on this site and make a purchase, this can result in this site earning a commission.</p>
-        <p>&copy; 2026 Mitali's Fashion. All Rights Reserved.</p>
-    </footer>
+            <div class="bifurcation" id="blazers">
+        <div class="bifurcation-header">
+          <h3>Blazers</h3>
+        </div>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-img-box">
+                            <img src="https://m.media-amazon.com/images/I/71p0Wf4E4SL._AC_UL400_.jpg" alt="Blazer" class="product-img" />
+            </div>
+            <div class="product-body">
+              <p class="product-tag">Blazers</p>
+              <p class="product-name">Structured Classic Blazer</p>
+              <a href="https://a.co/d/06N2i18O" target="_blank" rel="noopener sponsored" class="btn-amazon">
+                View on Amazon
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="bifurcation" id="tops">
+        <div class="bifurcation-header">
+          <h3>Tops & Blouses</h3>
+        </div>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="https://m.media-amazon.com/images/I/71R2H5Q8qLL._AC_UL400_.jpg" alt="Top" class="product-img" />
+            </div>
+            <div class="product-body">
+              <p class="product-tag">Tops</p>
+              <p class="product-name">Elegant V-Neck Blouse</p>
+              <a href="https://a.co/d/08j42nFd" target="_blank" rel="noopener sponsored" class="btn-amazon">
+                View on Amazon
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="bifurcation" id="trousers">
+        <div class="bifurcation-header">
+          <h3>Trousers</h3>
+        </div>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-img-box">
+              <img src="https://m.media-amazon.com/images/I/61S-M7tU1NL._AC_UL400_.jpg" alt="Trousers" class="product-img" />
+            </div>
+            <div class="product-body">
+              <p class="product-tag">Trousers</p>
+              <p class="product-name">Tailored Slim-Fit Trousers</p>
+              <a href="https://a.co/d/030b56wh" target="_blank" rel="noopener sponsored" class="btn-amazon">
+                View on Amazon
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+    <footer id="about">
+    <div class="footer-brand">The Daily Edit</div>
+    <p class="affiliate-notice">As an Amazon Associate we earn from qualifying purchases. When you click on links to various merchants on this site and make a purchase, this can result in this site earning a commission.</p>
+    <div class="footer-bottom">
+      <p>© 2026 The Daily Edit. All rights reserved.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
