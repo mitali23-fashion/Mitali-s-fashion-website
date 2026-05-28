@@ -1,2 +1,2 @@
-# Mitali-s-fashion-website
+# Mitali-s-fashion
 It's an officewear fashion website
