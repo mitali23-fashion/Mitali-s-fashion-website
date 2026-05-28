@@ -310,43 +310,6 @@
     }
     .tip-content p { font-size: 13px; color: var(--light); line-height: 1.65; }
 
-    /* ── NEWSLETTER ── */
-    .newsletter {
-      border-top: 0.5px solid var(--border);
-      border-bottom: 0.5px solid var(--border);
-      padding: 4rem 0;
-      text-align: center;
-    }
-    .newsletter .section-kicker { margin-bottom: 0.75rem; }
-    .newsletter h2 {
-      font-family: var(--serif); font-size: 36px; font-weight: 400;
-      margin-bottom: 0.75rem;
-    }
-    .newsletter p { color: var(--mid); margin-bottom: 2rem; }
-    .newsletter-form {
-      display: flex; gap: 0; max-width: 440px; margin: 0 auto;
-      border: 0.5px solid var(--border);
-    }
-    .newsletter-form input {
-      flex: 1; padding: 13px 18px;
-      border: none; background: var(--warm-white);
-      font-family: var(--sans); font-size: 14px; color: var(--charcoal);
-      outline: none;
-    }
-    .newsletter-form input::placeholder { color: var(--light); }
-    .newsletter-form button {
-      padding: 13px 24px;
-      background: var(--charcoal); color: var(--cream);
-      border: none; cursor: pointer;
-      font-family: var(--sans); font-size: 12px;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      transition: background 0.2s;
-    }
-    .newsletter-form button:hover { background: #2e2e2b; }
-    .newsletter-note {
-      margin-top: 1rem; font-size: 12px; color: var(--light);
-    }
-
     /* ── FOOTER ── */
     footer {
       padding: 3rem;
@@ -395,7 +358,6 @@
       <li><a href="#style-guide">Style guide</a></li>
     </ul>
     <div class="nav-right">
-      <a href="#newsletter">Newsletter</a>
       <a href="#about">About</a>
     </div>
   </nav>
@@ -504,16 +466,16 @@
 
         <div class="product-card">
           <div class="product-img">
-            <img src="https://m.media-amazon.com/images/I/71R2H5Q8qLL._AC_UL400_.jpg" alt="Silk-Touch Relaxed Collar Blouse" />
-            <span class="product-badge">Best seller</span>
+            <img src="image_d64caa.png" alt="Asymmetric Pleated Belted Blouse" />
+            <span class="product-badge">Trending</span>
           </div>
           <div class="product-body">
             <p class="product-tag">Blouses</p>
-            <p class="product-name">Silk-Touch Relaxed Collar Blouse</p>
-            <p class="product-desc">Soft, breathable, and polished. Tucks neatly into trousers or sits beautifully over a pencil skirt.</p>
+            <p class="product-name">Asymmetric Pleated Belted Blouse</p>
+            <p class="product-desc">A stunning draped neckline combined with an adjustable waist tie. Elevates any basic formal ensemble effortlessly.</p>
             <div class="product-footer">
-              <span class="product-price">From ₹1,299</span>
-              <a href="https://a.co/d/08j42nFd" target="_blank" rel="noopener sponsored" class="btn-amazon">
+              <span class="product-price">From ₹1,499</span>
+              <a href="https://a.co/d/01WJxnDz" target="_blank" rel="noopener sponsored" class="btn-amazon">
                 Amazon
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
@@ -549,7 +511,7 @@
         <p class="kicker">Style guide</p>
         <h2>Build a capsule wardrobe that <em>actually</em> works.</h2>
         <p>You don't need a full wardrobe refresh. You need ten pieces that do thirty jobs. Here's how we think about it.</p>
-        <a href="#newsletter" class="btn-outline">Get the full guide →</a>
+        <a href="#about" class="btn-outline">Read style guide →</a>
       </div>
       <div class="editorial-tips">
         <div class="tip">
@@ -574,19 +536,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="newsletter section" id="newsletter">
-    <div class="container">
-      <p class="section-kicker">The weekly edit</p>
-      <h2>New picks, straight to your inbox.</h2>
-      <p>Every Tuesday — curated finds, styling tips, and exclusive deals. No clutter.</p>
-      <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="your@email.com" aria-label="Email address" />
-        <button type="submit">Subscribe</button>
-      </form>
-      <p class="newsletter-note">No spam. Unsubscribe any time.</p>
     </div>
   </section>
 
